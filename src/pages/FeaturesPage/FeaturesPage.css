@@ -21,9 +21,3 @@
 .index-page__link-icon svg {
   display: block;
 }
-.ProseMirror-focused {
-  outline: none;
-}
-.milkdown {
-  border: none;
-}

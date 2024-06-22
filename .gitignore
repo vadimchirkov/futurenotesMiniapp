@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 *.pem
+yarn.lock
+package-lock.json
+package-lock.json
