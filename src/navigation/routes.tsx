@@ -1,5 +1,5 @@
 import type { ComponentType, JSX } from "react";
-
+import { ContentPage } from "@/pages/ContentPage/ContentPage";
 import { IndexPage } from "@/pages/IndexPage/IndexPage";
 import { InitDataPage } from "@/pages/InitDataPage/InitDataPage";
 import { LaunchParamsPage } from "@/pages/LaunchParamsPage/LaunchParamsPage.tsx";
@@ -15,6 +15,7 @@ interface Route {
 }
 
 export const routes: Route[] = [
+  { path: "/project/:project/:page", Component: ContentPage },
   { path: "/", Component: IndexPage },
   { path: "/features", Component: FeaturesPage },
   { path: "/init-data", Component: InitDataPage, title: "Init Data" },

@@ -5,23 +5,14 @@ import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
 import { Section, List } from "@telegram-apps/telegram-ui";
 import { StrictMode } from "react";
 
-const content = `# Dauga Spirit Values 
-values
-hello
-peace
-`;
 export const CreatePage: FC = () => {
   return (
     <StrictMode>
-      <List className="w-full">
-        <Section className="prose lg:prose-xl flex w-full m-4 justify ">
-          <MilkdownProvider>
-            <ProsemirrorAdapterProvider>
-              <MilkdownEditor content={content} />
-            </ProsemirrorAdapterProvider>
-          </MilkdownProvider>
-        </Section>
-      </List>
+      <MilkdownProvider>
+        <ProsemirrorAdapterProvider>
+          <MilkdownEditor />
+        </ProsemirrorAdapterProvider>
+      </MilkdownProvider>
     </StrictMode>
   );
 };

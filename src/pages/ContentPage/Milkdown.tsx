@@ -13,19 +13,18 @@ import { BlockView } from "./Block";
 
 import "@milkdown/theme-nord/style.css";
 import { cursor } from "@milkdown/plugin-cursor";
+import { placeholder, placeholderCtx } from "milkdown-plugin-placeholder";
+import { useContent } from "./ContentContext";
 
-// Define the props interface
-interface MilkdownEditorProps {
-  content: string;
-}
-
-export const MilkdownEditor: FC<MilkdownEditorProps> = ({ content }) => {
+export const MilkdownEditor: FC = () => {
+  const content = useContent();
   const pluginViewFactory = usePluginViewFactory();
   useEditor((root) => {
     return Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, root);
         ctx.set(defaultValueCtx, content);
+        ctx.set(placeholderCtx, "Have fun!");
         ctx.set(block.key, {
           view: pluginViewFactory({
             component: BlockView,
@@ -35,6 +34,7 @@ export const MilkdownEditor: FC<MilkdownEditorProps> = ({ content }) => {
       .config(nord)
       .use(commonmark)
       .use(block)
+      .use(placeholder)
       .use(cursor);
   }, []);
 

@@ -1,27 +1,38 @@
-import { FC } from "react";
-import {
-  Section,
-  List,
-  Avatar,
-  Headline,
-  Text,
-} from "@telegram-apps/telegram-ui";
+import { Section, Cell, Image, List } from "@telegram-apps/telegram-ui";
+import type { FC } from "react";
 
-import "./IndexPage.css";
-import CreatePage from "./CreatePage";
+import { Link } from "@/components/Link/Link.tsx";
 
 export const IndexPage: FC = () => {
   return (
-    <div className="prose lg:prose-xl flex w-full m-4 flex-col gap-y-6 items-center mt-10">
-      <Avatar
-        size={96}
-        src="https://avatars.githubusercontent.com/u/84640980?v=4"
-      />
-      <Headline weight="1">Organisation Name</Headline>
-
-      <CreatePage />
-    </div>
+    <List>
+      <Section>
+        <Link to="/project/ds/name">
+          <Cell>Page </Cell>
+        </Link>
+      </Section>
+      <Section>
+        <Link to="/ton-connect">
+          <Cell>TON Connect </Cell>
+        </Link>
+      </Section>
+      <Section>
+        <Link to="/init-data">
+          <Cell subtitle="User data, chat information, technical data">
+            Init Data
+          </Cell>
+        </Link>
+        <Link to="/launch-params">
+          <Cell subtitle="Platform identifier, Mini Apps version, etc.">
+            Launch Parameters
+          </Cell>
+        </Link>
+        <Link to="/theme-params">
+          <Cell subtitle="Telegram application palette information">
+            Theme Parameters
+          </Cell>
+        </Link>
+      </Section>
+    </List>
   );
 };
-
-export default IndexPage;
